@@ -1,0 +1,55 @@
+{
+  "name": "@orphnet/d1-eloquent-mcp",
+  "version": "0.1.0-beta.2",
+  "description": "MCP server for @orphnet/d1-eloquent — gives Claude live, context-aware access to your D1 ORM project: models, migrations, schema, seeders, and the CLI.",
+  "keywords": ["mcp", "model-context-protocol", "d1", "d1-eloquent", "cloudflare", "orm", "claude"],
+  "type": "module",
+  "bin": {
+    "d1-eloquent-mcp": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean --target node22 --shims",
+    "dev": "tsup src/index.ts --format esm --watch --target node22",
+    "test": "vitest run --passWithNoTests",
+    "prepublishOnly": "bun run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@orphnet/d1-eloquent": ">=0.1.0-beta.1"
+  },
+  "peerDependenciesMeta": {
+    "@orphnet/d1-eloquent": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.2",
+    "vitest": "^3.2.6"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Orphnet/d1-eloquent-mcp.git"
+  },
+  "license": "MIT",
+  "author": "Orphnet"
+}
